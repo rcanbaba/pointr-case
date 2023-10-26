@@ -57,4 +57,42 @@ function integerSqrt(x):
 
     return start - 1
 
+Q4) Logger implemented in the project DebugConsoleManager class, it have different log levels, also question 1 logged using this logger.
+
+
+<img width="370" alt="Logger" src="https://github.com/rcanbaba/pointr-case/assets/32519328/98f28930-0fc6-46ab-8c83-01dd44e7c531">
+
+
+Q5)
+
+a) 
+- Synchronous:
+Advantages: Simpler code. Execution waits until the request completion.
+Disadvantages: Blocks the main thread which can lead to a poor UX. It can make applications unresponsive.
+Asynchronous:
+- Asynchronous:
+Advantages: Doesn't block the main thread. Allows for a more responsive UI. Can handle multiple tasks at once.
+Disadvantages: More complex code. Need to handle callbacks, potential issues with race conditions or deadlocks.
+
+b) 
+now i am working an implementation like that in my current job, I used DispathGroup together semaphores in swift.
+
+for here we should wait the all the http calls are completed
+
+
+function synchronousHTTPCall(url):
+
+    semaphore = createSemaphore(value: 0)
+    var resultData = null
+    makeAsynchronousCall(url, completion: (data) => {
+        resultData = data
+        signalSemaphore(semaphore)
+    })
+    waitForSemaphore(semaphore)
+    return resultData
+
+
+
+
+
 
