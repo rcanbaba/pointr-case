@@ -22,5 +22,39 @@ Also i write all test methods on the project, used logger to log informations,
 
 
 
+Q2)
+
+Safety and Predictability: With NSDictionary, once it's set, you know it will never change. This reduces the risk of unexpected side effects or data corruption from changes in different parts of the code.
+
+Performance: Immutable objects can often be optimized better than mutable ones since they don't need to handle potential changes.
+
+Memory Management: Immutable objects can be more memory-efficient since they don't need to reserve extra space for potential changes.
+
+One can't be simply dropped without breaking a lot of existing code or violating the principle of immutability. The introduction of Swift and its focus on value types (like Dictionary) makes this distinction clearer, but for Objective-C compatibility and historical reasons, both types must be exist.
+
+Q3) 
+
+It does not work on negative values also without floating point it is not possible some integer values to calculete sqrt roots if it is not perfect square numbers (like 1,4,9 etc.) the method below finds the nearest integer.
+
+
+function integerSqrt(x):
+
+    if x < 0:
+        return "Error" // negative value
+    else if x == 0 or x == 1:
+        return x
+    start = 1
+    end = x
+    while start <= end:
+        mid = (start + end) / 2 // integer division
+        squared = mid * mid
+        if squared == x:
+            return mid
+        else if squared < x:
+            start = mid + 1
+        else:
+            end = mid - 1
+
+    return start - 1
 
 
