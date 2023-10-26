@@ -15,6 +15,8 @@
 		B43D27A12AE5318F007E5067 /* DebugConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D27A02AE5318F007E5067 /* DebugConsoleView.swift */; };
 		B43D27A42AE532A6007E5067 /* DebugConsoleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D27A32AE532A6007E5067 /* DebugConsoleManager.swift */; };
 		B43D27A62AE53583007E5067 /* RollDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D27A52AE53583007E5067 /* RollDiceView.swift */; };
+		B43D27A82AEA52AC007E5067 /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D27A72AEA52AC007E5067 /* DiceRoller.swift */; };
+		B43D27AA2AEA5453007E5067 /* DiceRollerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D27A92AEA5453007E5067 /* DiceRollerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B43D27A02AE5318F007E5067 /* DebugConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugConsoleView.swift; sourceTree = "<group>"; };
 		B43D27A32AE532A6007E5067 /* DebugConsoleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugConsoleManager.swift; sourceTree = "<group>"; };
 		B43D27A52AE53583007E5067 /* RollDiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollDiceView.swift; sourceTree = "<group>"; };
+		B43D27A72AEA52AC007E5067 /* DiceRoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
+		B43D27A92AEA5453007E5067 /* DiceRollerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				B43D27A32AE532A6007E5067 /* DebugConsoleManager.swift */,
+				B43D27A72AEA52AC007E5067 /* DiceRoller.swift */,
+				B43D27A92AEA5453007E5067 /* DiceRollerTest.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -168,8 +174,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B43D27A62AE53583007E5067 /* RollDiceView.swift in Sources */,
+				B43D27A82AEA52AC007E5067 /* DiceRoller.swift in Sources */,
 				B43D278F2AE53059007E5067 /* MainViewController.swift in Sources */,
 				B43D278B2AE53059007E5067 /* AppDelegate.swift in Sources */,
+				B43D27AA2AEA5453007E5067 /* DiceRollerTest.swift in Sources */,
 				B43D27A12AE5318F007E5067 /* DebugConsoleView.swift in Sources */,
 				B43D27A42AE532A6007E5067 /* DebugConsoleManager.swift in Sources */,
 				B43D278D2AE53059007E5067 /* SceneDelegate.swift in Sources */,
