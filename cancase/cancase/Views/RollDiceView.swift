@@ -9,6 +9,9 @@ import UIKit
 
 protocol RollDiceViewDelegate: AnyObject {
     func rollDiceButtonTapped(view: UIView)
+    func rollFrequencyTestButtonTapped(view: UIView)
+    func rollBoundsTestButtonTapped(view: UIView)
+    func rollRepeatTestButtonTapped(view: UIView)
 }
 
 class RollDiceView: UIView {
@@ -30,6 +33,28 @@ class RollDiceView: UIView {
         return button
     }()
     
+    private let frequencyTest: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Frequency Test", for: .normal)
+        button.addTarget(self, action: #selector(rollFrequencyTestButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    private let boundsTest: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Bounds Test", for: .normal)
+        button.addTarget(self, action: #selector(rollBoundsTestButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let repeatTest: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Repeat Test", for: .normal)
+        button.addTarget(self, action: #selector(rollRepeatTestButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -42,18 +67,32 @@ class RollDiceView: UIView {
     private func configureUI() {
         diceLabel.translatesAutoresizingMaskIntoConstraints = false
         rollButton.translatesAutoresizingMaskIntoConstraints = false
+        frequencyTest.translatesAutoresizingMaskIntoConstraints = false
+        boundsTest.translatesAutoresizingMaskIntoConstraints = false
+        repeatTest.translatesAutoresizingMaskIntoConstraints = false
+
+
+        let testButtonsStackView = UIStackView(arrangedSubviews: [frequencyTest, boundsTest, repeatTest])
+        testButtonsStackView.axis = .horizontal
+        testButtonsStackView.spacing = 8
+        testButtonsStackView.alignment = .fill
+        testButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
+
         
-        addSubview(diceLabel)
-        addSubview(rollButton)
+        let mainStackView = UIStackView(arrangedSubviews: [diceLabel, rollButton, testButtonsStackView])
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 16
+        mainStackView.alignment = .center
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
-            diceLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            diceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            rollButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            rollButton.topAnchor.constraint(equalTo: diceLabel.bottomAnchor, constant: 20)
+            mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            mainStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
+
     
 }
 
@@ -61,6 +100,15 @@ class RollDiceView: UIView {
 extension RollDiceView {
     @objc private func rollDiceButtonTapped() {
         delegate?.rollDiceButtonTapped(view: self)
+    }
+    @objc private func rollFrequencyTestButtonTapped() {
+        delegate?.rollFrequencyTestButtonTapped(view: self)
+    }
+    @objc private func rollBoundsTestButtonTapped() {
+        delegate?.rollBoundsTestButtonTapped(view: self)
+    }
+    @objc private func rollRepeatTestButtonTapped() {
+        delegate?.rollRepeatTestButtonTapped(view: self)
     }
 }
 

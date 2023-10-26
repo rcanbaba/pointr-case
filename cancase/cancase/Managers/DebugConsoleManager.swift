@@ -26,7 +26,7 @@ final class DebugConsoleManager {
     
     private let defaultLogLevel: LogLevel = .verbose
     
-    private func log(_ items: [Any], userLogLevel: LogLevel) {
+    public func log(_ items: [Any], userLogLevel: LogLevel) {
         
         if userLogLevel.rawValue >= defaultLogLevel.rawValue {
             let logIdentifier = getColoredEmoji(userLogLevel)
@@ -70,7 +70,5 @@ extension DebugConsoleManager {
         consoleView = DebugConsoleView(frame: frame)
         window.addSubview(consoleView!)
     }
-    
-
     
 }
